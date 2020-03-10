@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class TestPerson {
+public class PersonTest {
 
     @Test
     public void constructorTest() {
