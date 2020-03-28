@@ -1,36 +1,42 @@
 package io.zipcoder.interfaces;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 
 
 public class PeopleTest {
 
-    Person person = new Person(1L, "Han");
-    People people = new People();
+    Student han = new Student(1, "Han");
+    People<Student> students;
+
+    @Before
+    public void setUp() {
+        students = Students.getInstance();
+    }
 
     @Test
     public void addTest() {
-        Integer expected = 1;
-        people.add(person);
-        Integer actual = people.count();
+        Integer expected = 5;
+        students.add(han);
+        Integer actual = students.count();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void removeTest() {
-        people.add(person);
-        Assert.assertTrue(people.contain(person));
-        people.remove(person);
-        Assert.assertFalse(people.contain(person));
+        students.add(han);
+        Assert.assertTrue(students.contain(han));
+        students.remove(han);
+        Assert.assertFalse(students.contain(han));
     }
 
     @Test
     public void FindByIdTest() {
-        people.add(person);
+        students.add(han);
         String expectedName = "Han";
-        Person expected = people.findById(1L);
+        Person expected = students.findById(1L);
         String actualName = expected.getName();
         Assert.assertEquals(expectedName, actualName);
     }

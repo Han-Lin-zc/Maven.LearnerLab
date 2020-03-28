@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class StudentsTest {
 
     @Test
-    public void StudentSingletonTest() {
+    public void studentSingletonTest() {
         Students instance = Students.getInstance();
         int i = 1;
         for (Student s : instance.getArray()) {
